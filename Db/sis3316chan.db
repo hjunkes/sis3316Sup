@@ -1,0 +1,91 @@
+# Per channel db
+#
+# Macros:
+#  P - project/device name
+#  C - channel name
+#  PORT - Asyn port name
+#  N - channel number (0-15)
+
+record(mbbo, "${P}${C}Gain") {
+  field(DESC, "Set Gain channel ${C}")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn(${PORT}, ${N})Gain")
+  field(NOBT, "2")
+  field(ZRVL, "0")
+  field(ONVL, "1")
+  field(TWVL, "2")
+  field(THVL, "3")
+  field(ZRST, "InpRange 5V")
+  field(ONST, "InpRange 2V")
+  field(TWST, "InpRange 1.9V")
+  field(THST, "InpRange 1.9V")
+  field (FLNK,"${P}${C}Gain_RBV")
+  info("autosaveFields_pass0", "VAL")
+}
+
+record(mbbi, "${P}${C}Gain_RBV") {
+  field(DESC, "Get Gain channel ${C}")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn(${PORT}, ${N})Gain")
+  field(NOBT, "2")
+  field(ZRVL, "0")
+  field(ONVL, "1")
+  field(TWVL, "2")
+  field(THVL, "3")
+  field(ZRST, "InpRange 5V")
+  field(ONST, "InpRange 2V")
+  field(TWST, "InpRange 1.9V")
+  field(THST, "InpRange 1.9V")
+  field(PINI, "YES")
+  info("autosaveFields_pass0", "VAL")
+}
+
+record(bo, "${P}${C}Termination") {
+  field(DESC, "Set Termination channel ${C}")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn(${PORT}, ${N})Termination")
+  field(ZNAM, "50 Ohm")
+  field(ONAM, "Disable 50 Ohm")
+  field (FLNK,"${P}${C}Termination_RBV")
+  info("autosaveFields_pass0", "VAL")
+}
+
+record(bi, "${P}${C}Termination_RBV") {
+  field(DESC, "Get Termination channel ${C}")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn(${PORT}, ${N})Termination")
+  field(ZNAM, "50 Ohm")
+  field(ONAM, "50 Ohm disabled")
+  field(PINI, "YES")
+  info("autosaveFields_pass0", "VAL")
+}
+record(ao, "${P}${C}Offset") {
+  field(DESC, "Set offset (in %) channel ${C}")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn(${PORT}, ${N})Offset")
+  field(HOPR,"1.0")
+  field(LOPR,"0.0")
+  field(EGU,"100%")
+  field (FLNK,"${P}${C}Offset_RBV")
+  info("autosaveFields_pass0", "VAL")
+}
+
+record(ai, "${P}${C}Offset_RBV") {
+  field(DESC, "Get offset channel ${C}")
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn(${PORT}, ${N})Offset")
+  field(HOPR,"1.0")
+  field(LOPR,"0.0")
+  field(EGU,"100%")
+  info("autosaveFields_pass0", "VAL")
+}
+
+record(waveform, "${P}${C}data") {
+ field(DESC, "Read data")
+ field(DTYP, "asynFloat64ArrayIn")
+ field(FTVL, "DOUBLE")
+ field(NELM, "4000")
+ field(INP, "@asyn(${PORT}, ${N})Read Data")
+ #field(PINI, "YES")
+ field(SCAN, "I/O Intr")
+}

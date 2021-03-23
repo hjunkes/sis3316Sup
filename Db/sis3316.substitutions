@@ -1,0 +1,21 @@
+
+file "db/sis3316chan.db" {
+    pattern { P, C, PORT, N }
+       { "$(NAME)", "CH1:", "$(HW_PORT)",  0 }
+       { "$(NAME)", "CH2:", "$(HW_PORT)",  1 }
+       { "$(NAME)", "CH3:", "$(HW_PORT)",  2 }
+       { "$(NAME)", "CH4:", "$(HW_PORT)",  3 }
+       { "$(NAME)", "CH5:", "$(HW_PORT)",  4 }
+       { "$(NAME)", "CH6:", "$(HW_PORT)",  5 }
+       { "$(NAME)", "CH7:", "$(HW_PORT)",  6 }
+       { "$(NAME)", "CH8:", "$(HW_PORT)",  7 }
+       { "$(NAME)", "CH9:", "$(HW_PORT)",  8 }
+       { "$(NAME)", "CH10:", "$(HW_PORT)",  9 }
+       { "$(NAME)", "CH11:", "$(HW_PORT)",  10 }
+       { "$(NAME)", "CH12:", "$(HW_PORT)",  11 }
+       { "$(NAME)", "CH13:", "$(HW_PORT)",  12 }
+       { "$(NAME)", "CH14:", "$(HW_PORT)",  13 }
+       { "$(NAME)", "CH15:", "$(HW_PORT)",  14 }
+       { "$(NAME)", "CH16:", "$(HW_PORT)",  15 }
+
+}

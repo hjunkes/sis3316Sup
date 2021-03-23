@@ -1,0 +1,63 @@
+# Global parameters for sis3316
+#
+# Macros:
+#  P - record name prefix
+#  PORT - Asyn port name
+
+
+# static
+
+record(longin, "${P}ModuleId") {
+  field(DESC, "Module ID")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn(${PORT})Module ID")
+  field(PINI,"YES")
+}
+
+record(longin, "${P}SerialNumber") {
+  field(DESC, "Serial Number")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn(${PORT})Serial Number")
+  field(PINI,"YES")
+}
+
+record(longin, "${P}RevisionNumber") {
+  field(DESC, "Revision Number")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn(${PORT})Revision Number")
+  field(PINI,"YES")
+}
+
+record(ai, "${P}boardTemp") {
+  field(DESC, "Board Temperature")
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn(${PORT})Board Temp")
+  field(EGU, "gradC")
+  field(SCAN,"I/O Intr")
+  field(PINI,"YES")
+}
+
+record(longout, "${P}AutoTrigger" ) {
+  field(DESC, "Auto Trigger")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn(${PORT})Auto Trigger")
+  #field(SCAN," 1 second")
+  field(VAL, "0")
+  field(PINI,"YES")
+}
+
+record(ao, "${P}TriggerWaitTime" ) {
+  field(DESC, "Trigger wait time")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn(${PORT})Trigger Wait")
+  field(VAL, "10.0")
+  #field(SCAN," 1 second")
+  field(PINI,"YES")
+}
+
+record(longout, "${P}ClearTimestamp" ) {
+  field(DESC, "Clear Timestamp")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn(${PORT})Timestamp Clear")
+  #field(PINI,"YES")
+}
