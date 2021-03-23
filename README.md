@@ -21,7 +21,7 @@ can be found quickly.
 in the st.cmd e.g.
 
 #Initialize Struck SIS3316 (16 channel digitizer)
-# ..01 as trick to enable Hw Average (other firmware needed), SW1 == 4, SW2 == 1 -> 0x41000000
+#..01 as trick to enable Hw Average (other firmware needed), SW1 == 4, SW2 == 1 -> 0x41000000
 drvAsynSIS3316Configure("sis0", "0x41000000", "42", "2", "4000", "1", "1")
 
 #asynSetTraceMask ("sis0", -1, 0x3F) set in Port Driver
